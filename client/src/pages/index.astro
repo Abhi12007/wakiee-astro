@@ -18,37 +18,66 @@ const keywords =
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Wakiee Random Chat",
-  url: "https://wakiee.live/",
-  applicationCategory: "CommunicationApplication",
-  operatingSystem: "All",
-  description:
-    "Wakiee is a random video and voice chat platform that lets users talk to strangers online instantly and meet new people worldwide.",
-  isPartOf: {
-    "@type": "WebSite",
-    "@id": "https://wakiee.live/#website",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "Wakiee",
-    url: "https://wakiee.live/",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://wakiee.live/android-chrome-192x192.png",
-    },
-  },
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://wakiee.live/",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://wakiee.live/#webapp",
+      "name": "Wakiee Random Chat",
+      "url": "https://wakiee.live/",
+      "applicationCategory": "CommunicationApplication",
+      "operatingSystem": "All",
+      "description":
+        "Wakiee is a random video and voice chat platform that lets users talk to strangers online instantly and meet new people worldwide.",
+      "isPartOf": {
+        "@id": "https://wakiee.live/#website"
       },
-    ],
-  },
+      "publisher": {
+        "@id": "https://wakiee.live/#organization"
+      }
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://wakiee.live/#website",
+      "url": "https://wakiee.live/",
+      "name": "Wakiee",
+      "description":
+        "Wakiee is a random video and voice chat platform that lets users talk to strangers online instantly and meet new people worldwide.",
+      "publisher": {
+        "@id": "https://wakiee.live/#organization"
+      }
+    },
+
+    {
+      "@type": "Organization",
+      "@id": "https://wakiee.live/#organization",
+      "name": "Wakiee",
+      "url": "https://wakiee.live/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wakiee.live/android-chrome-192x192.png"
+      },
+      "sameAs": [
+        "https://instagram.com/wakiee.live",
+        "https://x.com/wakiee_live",
+        "https://www.youtube.com/@wakieelive",
+        "https://www.facebook.com/wakiee.live"
+      ]
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://wakiee.live/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wakiee.live/"
+        }
+      ]
+    }
+  ]
 };
 ---
 
