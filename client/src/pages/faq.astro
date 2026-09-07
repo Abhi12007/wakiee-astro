@@ -1,1 +1,346 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../blog/blog.css";
+
+const faqData = [
+  {
+    q: "What is Wakiee?",
+    a: "Wakiee is a modern Random video chat platform where you can meet new people safely and instantly. It connects strangers through live video or audio for meaningful conversations and cultural exchange."
+  },
+  {
+    q: "Is Wakiee the new alternative to Older chatting platforms?",
+    a: "Wakiee is one of several modern chat platforms people explore after older services shut down. It focuses on simple conversations and community guidelines."
+  },
+  {
+    q: "Is Wakiee safe to use?",
+    a: "Wakiee is designed with user safety as a core priority. The platform uses a combination of AI-assisted moderation, human review, community reporting, and platform enforcement tools to help reduce inappropriate behaviour. Users can report violations directly from the platform, and depending on the severity of the incident, moderation actions may include warnings, temporary restrictions, removal from conversations or rooms, or permanent bans. While no moderation system can prevent every violation, we continuously improve our safety systems, moderation policies, and community standards to create a more respectful environment for everyone."
+  },
+  {
+    q: "Do I need to sign up or create an account?",
+    a: "Wakiee lets you start chatting instantly without registration. Just click ‘Start’ to connect anonymously."
+  },
+  {
+    q: "Can I talk to strangers from other countries?",
+    a: " Wakiee connects you with people worldwide to explore languages, cultures, and new friendships."
+  },
+  {
+    q: "How does Wakiee differ from Omegle or Chatroulette?",
+    a: "Wakiee focuses on creating a more respectful and safety-conscious communication platform. Alongside instant voice and video conversations, the platform emphasizes user privacy, AI-assisted moderation, human review, community reporting, clearly defined Community Guidelines, and continuous platform improvements. Our goal is to encourage meaningful conversations while providing users with tools that help create a safer online experience."
+  },
+  {
+    q: "Does Wakiee store or record my video calls?",
+    a: "Wakiee is designed to facilitate real-time conversations rather than storing or publishing user communications. Video and voice chats are intended to be temporary communication sessions. Users should still avoid sharing sensitive personal information such as passwords, banking details, identification documents, or home addresses while using any online communication platform. For more information about how information is handled, please refer to our Privacy Policy."
+  },
+  {
+    q: "Can I use Wakiee on mobile?",
+    a: "Wakiee is mobile responsive and works perfectly in any browser — no download required."
+  },
+  {
+    q: "How does Wakiee prevent misuse?",
+    a: "Wakiee combines AI-assisted moderation, human review, community reporting, and platform enforcement to discourage misuse. Users who engage in harassment, spam, scams, hate speech, nudity, impersonation, or other violations of our Community Guidelines may receive warnings, temporary restrictions, removal from conversations, or permanent bans depending on the severity of the behaviour. We regularly review our moderation processes and improve our detection systems to help maintain a safer platform."
+  },
+  {
+    q: "Will I see ads during my chat?",
+    a: "Wakiee keeps chats ad-free for now but in future ads may be shown."
+  },
+  {
+    q: "Can I get banned on Wakiee?",
+    a: "Yes. Users who violate our Community Guidelines or Terms of Service may receive moderation actions depending on the severity of the behaviour. This may include warnings, temporary restrictions, removal from conversations or rooms, temporary bans, or permanent bans for serious or repeated violations. Behaviour such as harassment, nudity, spam, scams, impersonation, hate speech, threats, or illegal activity is not permitted on the platform."
+  },
+  {
+    q: "What topics can I talk about?",
+    a: "Users are welcome to discuss travel, languages, education, technology, hobbies, culture, entertainment, personal interests, and other respectful topics. Conversations should remain friendly, lawful, and consistent with our Community Guidelines. Harassment, explicit sexual content, hate speech, threats, scams, spam, or illegal activities are not permitted."
+  },
+  {
+    q: "Can I report someone?",
+    a: "Yes. If someone behaves inappropriately or violates our Community Guidelines, you should use the Report feature available within the platform. Reports help our moderation systems identify harmful behaviour and may be reviewed through AI-assisted tools and human moderation where appropriate. Repeated or serious violations may result in moderation actions such as warnings, temporary restrictions, removal from conversations, or permanent bans."
+  },
+  {
+    q: "Is Wakiee free to use?",
+    a: "Wakiee is currently free to use, and no paid subscriptions or credits are required at this time."
+  },
+  {
+    q: "Will Wakiee release a mobile app?",
+    a: "A Progressive Web App (PWA) version is in development, offering an app-like experience but as of now we don't have an application for smart phone."
+  },
+  {
+    q: "How do I get unbanned from Wakiee?",
+    a: "Temporary restrictions usually expire automatically after the applicable moderation period. If you believe a moderation action was applied incorrectly or wish to appeal a permanent ban, you may contact our support team through the Contact page. Each request is reviewed based on the available information and our Community Guidelines."
+  },
+  {
+    q: "How can I write a blog for Wakiee?",
+    a: "Email contact@wakiee.live to contribute articles about culture, online learning, and safe digital communication."
+  },
+  {
+    q: "Does Wakiee use cookies or analytics?",
+    a: "Yes. Wakiee may use limited cookies and analytics technologies to understand website performance, improve reliability, enhance user experience, and identify technical issues. These tools help us improve the platform and do not change our commitment to user privacy. Additional details are available in our Privacy Policy."
+  },
+  {
+    q: "How can I support Wakiee?",
+    a: "Share Wakiee with friends, post about it on social media, or write about your experience on your blog!"
+  },
+  {
+    q: "Who can use Wakiee?",
+    a: "Wakiee is intended for users aged 18 years and older. We encourage everyone using the platform to communicate respectfully, follow our Community Guidelines, respect the privacy of others, and comply with our Terms of Service. Maintaining a welcoming community is a shared responsibility."
+  },
+  {
+    q: "What should I do if someone behaves inappropriately?",
+    a: "If you encounter harassment, bullying, hate speech, nudity, sexually explicit behaviour, threats, scams, spam, impersonation, or any other conduct that violates our Community Guidelines, you should end the conversation immediately and use the Report feature. Reports help our moderation systems identify behaviour that may require review. Depending on the nature and severity of the violation, moderation actions may include warnings, temporary restrictions, removal from conversations or rooms, or permanent bans. We encourage users not to engage with abusive behaviour and to report violations responsibly so that appropriate action can be taken."
+  },
+  {
+    q: "How does moderation work in Group Voice Rooms?",
+    a: "Group Voice Rooms include moderation tools that help room creators and designated room administrators maintain a respectful environment. Depending on their permissions, moderators may mute disruptive participants, remove (kick) users from a room,Ban users, lock the room to prevent new participants from joining, and manage ongoing discussions. Serious or repeated violations of our Community Guidelines can also be reported for platform-level review, which may result in temporary restrictions or permanent bans. These moderation tools are designed to help communities maintain productive conversations while reducing spam, harassment, abusive behaviour, and other policy violations."
+  }
+];
+
+const title = "FAQ – Wakiee | Questions & Answers";
+
+const description =
+  "Find answers to common questions about Wakiee, including account-free access, video chat, voice chat, privacy, safety, moderation, community guidelines, and platform policies.";
+
+const keywords =
+  "wakiee faq, random video chat questions, talk to strangers help, video chat safety, wakiee help, voice chat faq , questions about wakiee";
+
+const canonical = "https://wakiee.live/faq";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Wakiee FAQ",
+      "url": "https://wakiee.live/faq",
+      "description":
+        "Answers to common questions about Wakiee random video chat and voice chat.",
+
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://wakiee.live/#website"
+      },
+
+      "publisher": {
+        "@type": "Organization",
+        "name": "Wakiee",
+        "url": "https://wakiee.live/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://wakiee.live/android-chrome-192x192.png"
+        }
+      }
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wakiee.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://wakiee.live/faq"
+        }
+      ]
+    },
+
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqData.map((item) => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  robots="index, follow, max-image-preview:large"
+  canonical={canonical}
+  ogTitle="Wakiee FAQ – Frequently Asked Questions | Wakiee"
+  ogDescription="Get answers about Wakiee video chat, voice chat, safety, and privacy."
+  ogImage="https://wakiee.live/android-chrome-192x192.png"
+  ogUrl={canonical}
+  ogType="website"
+  twitterTitle="Wakiee FAQ"
+  twitterDescription="Frequently asked questions about Wakiee."
+  twitterImage="https://wakiee.live/android-chrome-192x192.png"
+  schema={schema}
+>
+  <div class="blog-container">
+
+    <h1 class="blog-title" style="color: #fc6;">
+      Frequently Asked Questions (FAQ)
+    </h1>
+
+    <p class="blog-subtitle">
+      Your guide to using Wakiee — safety, features, and community rules.
+    </p>
+
+    <div class="faq-section">
+      {faqData.map((item, index) => (
+        <div class="faq-item" data-faq-index={index}>
+          <div class="faq-question">
+            <h3>{item.q}</h3>
+
+            <span class="arrow">
+              ▼
+            </span>
+          </div>
+
+          <p class="faq-answer">
+            {item.a}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- ✅ Related links -->
+    <div
+      class="related-links"
+      style="margin-top: 40px; text-align: center;"
+    >
+      <p>
+        Learn more:{" "}
+        <a href="/about" style="color: #00aaff;">About Wakiee</a> |{" "}
+        <a href="/privacy" style="color: #00aaff;">Privacy Policy</a> |{" "}
+        <a href="/contact" style="color: #00aaff;">Contact Us</a>
+      </p>
+    </div>
+
+    <!-- ✅ Safety Disclaimer for AdSense -->
+    <footer
+      class="faq-footer"
+      style="
+        margin-top: 40px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #bbb;
+      "
+    >
+      Wakiee uses AI-based moderation and encourages respectful communication.
+      Please avoid sharing personal details or inappropriate content.
+    </footer>
+
+  </div>
+</BaseLayout>
+
+<script>
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const answer = item.querySelector(".faq-answer");
+    const arrow = item.querySelector(".arrow");
+
+    if (!answer || !arrow) return;
+
+    answer.style.display = "none";
+
+    item.addEventListener("click", () => {
+      const isOpen = answer.style.display !== "none";
+
+      faqItems.forEach((otherItem) => {
+        const otherAnswer = otherItem.querySelector(".faq-answer");
+        const otherArrow = otherItem.querySelector(".arrow");
+
+        if (otherAnswer) {
+          otherAnswer.style.display = "none";
+        }
+
+        if (otherArrow) {
+          otherArrow.classList.remove("open");
+        }
+      });
+
+      if (!isOpen) {
+        answer.style.display = "block";
+        arrow.classList.add("open");
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Inline styles (mobile-first dropdowns) */
+
+  .faq-section {
+    text-align: left;
+    max-width: 900px;
+    margin: 40px auto;
+  }
+
+  .faq-item {
+    background: rgba(15, 23, 36, 0.7);
+    color: #e6eef8;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 16px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .faq-item:hover {
+    background: rgba(15, 23, 36, 0.9);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-question h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+
+  .faq-item:hover .faq-question h3 {
+    color: #66cfff;
+  }
+
+  .faq-answer {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #cfd8e3;
+    line-height: 1.6;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    color: #fff;
+  }
+
+  .arrow.open {
+    transform: rotate(180deg);
+  }
+
+  @media (max-width: 768px) {
+    .faq-section {
+      padding: 0 10px;
+    }
+
+    .faq-question h3 {
+      font-size: 1rem;
+    }
+
+    .faq-answer {
+      font-size: 0.95rem;
+    }
+  }
+</style>
 
