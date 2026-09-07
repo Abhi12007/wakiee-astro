@@ -1,0 +1,79 @@
+/* KeywordPage.css */
+
+
+
+/* Content */
+.content-section {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  color: #ffffff;
+  line-height: 1.75;
+}
+.content-section h2 { margin-top: 28px; margin-bottom: 12px; color: #ffffff; }
+.content-section h3 { margin-top: 20px; margin-bottom: 10px; color: #ffffff; }
+
+/* Figures */
+.inline-figure {
+  margin: 18px 0;
+  text-align: center;
+}
+.inline-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: inline-block;
+}
+.inline-figure figcaption {
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin-top: 8px;
+}
+
+/* Testimonial */
+.testimonial {
+  margin: 18px 0;
+  padding: 18px;
+  border-left: 4px solid #ffcc66;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #ffffff;
+}
+.testimonial blockquote {
+  margin: 0 0 8px 0;
+  font-style: italic;
+  color: #ffffff;
+}
+.testimonial cite {
+  display: block;
+  color: #ffffff;
+  font-size: 0.92rem;
+}
+
+/* Tips */
+.tips { margin: 12px 0; padding-left: 1.05rem; color: #ffffff; }
+
+/* FAQ */
+.faq h4 { margin-top: 14px; color: #ffffff; }
+.faq p { margin: 8px 0 0 0; color: #ffffff; }
+
+/* CTA */
+.cta-btn {
+  display: inline-block;
+  background: #0056a6;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.cta-btn:hover { background: #00407e; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero { padding: 28px 12px; min-height: 36vh; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-sub { font-size: 0.98rem; }
+  .content-section { padding: 16px; font-size: 0.98rem; }
+  .testimonial { padding: 14px; }
+}
