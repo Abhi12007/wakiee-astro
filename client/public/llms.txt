@@ -1,0 +1,34 @@
+# Wakiee
+
+> Wakiee is a free platform for random voice chat, random video chat, and random group voice call rooms where people can talk to strangers without creating an account.
+
+Wakiee enables people to meet and talk with strangers worldwide through random voice chat, random video chat, and public voice rooms for free and without any sign up and download. This document provides AI assistants with an overview of the website and links to its most important resources.The sections below list Wakiee's primary pages, informational resources, and policies.
+
+## Main Pages
+
+- [Home](https://wakiee.live/): Homepage of Wakiee.
+- [Voice Chat](https://wakiee.live/voice): Talk to strangers through random voice chat.
+- [Video Chat](https://wakiee.live/video): Meet new people using random video chat.
+- [Rooms](https://wakiee.live/rooms): Join or create public voice rooms.
+
+## Guides
+
+- [Talk to Strangers Online](https://wakiee.live/talk-to-strangers-online): Guide to talking with strangers safely.
+- [Random Video Chat](https://wakiee.live/random-video-chat): Information about random video chatting.
+- [Omegle Alternative](https://wakiee.live/omegle-alternative): Why Wakiee is an alternative to Omegle.
+- [Monkey App Guide](https://wakiee.live/monkey): Learn about Monkey and similar platforms.
+- [Chitchat Guide](https://wakiee.live/chitchat): Information about Chitchat and online chat platforms.
+
+## Information
+
+- [About](https://wakiee.live/about): Learn about Wakiee.
+- [Contact](https://wakiee.live/contact): Contact the Wakiee team.
+- [FAQ](https://wakiee.live/faq): Frequently asked questions.
+- [Community Guidelines](https://wakiee.live/guidelines): Rules for using Wakiee.
+- [Privacy Policy](https://wakiee.live/privacy): Privacy practices.
+- [Terms of Service](https://wakiee.live/terms): Terms of using Wakiee.
+
+
+## Blog
+
+- [Blog](https://wakiee.live/blog): Articles about online communication, random chat, online safety, and Wakiee.

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 🏠 Home -->
+  <url>
+    <loc>https://wakiee.live/</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+   <!-- 🎥 Video Call -->
+  <url>
+    <loc>https://wakiee.live/video</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.99</priority>
+  </url>
+
+  <!-- 🎥 Voice Call -->
+  <url>
+    <loc>https://wakiee.live/voice</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.98</priority>
+  </url>
+
+   <!-- 🎥 Rooms -->
+  <url>
+    <loc>https://wakiee.live/rooms</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.97</priority>
+  </url>
+
+  <!-- 📰 Blog -->
+  <url>
+    <loc>https://wakiee.live/blog</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.96</priority>
+  </url>
+
+  <!-- 🔗 SEO Content Pages-->
+  <url>
+    <loc>https://wakiee.live/random-video-chat</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://wakiee.live/talk-to-strangers-online</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.94</priority>
+  </url>
+
+  <url>
+    <loc>https://wakiee.live/omegle-alternative</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.93</priority>
+  </url>
+
+  <url>
+    <loc>https://wakiee.live/chitchat</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+  </url>
+
+  <url>
+    <loc>https://wakiee.live/monkey</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.91</priority>
+  </url>
+
+
+  
+  <!-- 🧭 Info Pages -->
+  <url>
+    <loc>https://wakiee.live/about</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wakiee.live/contact</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wakiee.live/privacy</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://wakiee.live/terms</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://wakiee.live/guidelines</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <url>
+    <loc>https://wakiee.live/faq</loc>
+    <lastmod>2025-11-05T00:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.60</priority>
+  </url>
+
+</urlset>

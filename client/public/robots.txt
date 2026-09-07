@@ -1,0 +1,16 @@
+# robots.txt for Wakiee
+# This file tells search engines what parts of your site can be crawled and indexed.
+
+User-agent: *
+Allow: /
+
+# Block sensitive or backend routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /server/
+Disallow: /auth/
+Disallow: /socket.io/
+
+# Important: point to your sitemap
+Sitemap: https://wakiee.live/sitemap.xml
+Sitemap: https://wakiee.live/sitemap_blogs.xml
