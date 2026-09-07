@@ -1,1 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import VideoShell from "../components/VideoShell.jsx";
+
+const title =
+  "Random Video Chat Online | Talk to Strangers on Video | Wakiee";
+
+const description =
+  "Wakiee lets you start a random video chat online and talk to strangers from around the world. Meet new people instantly with free video chat.";
+
+const keywords =
+  "random video chat, random video chat online, video chat with strangers, talk to strangers, random chat, free video chat, Wakiee";
+
+const canonical = "https://wakiee.live/video";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://wakiee.live/#webapp",
+      "name": "Wakiee Random Video Chat",
+      "url": "https://wakiee.live/video",
+      "applicationCategory": "CommunicationApplication",
+      "operatingSystem": "All",
+      "description": description,
+      "isPartOf": {
+        "@id": "https://wakiee.live/#website"
+      },
+      "publisher": {
+        "@id": "https://wakiee.live/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://wakiee.live/video#webpage",
+      "url": "https://wakiee.live/video",
+      "name": title,
+      "description": description,
+      "isPartOf": {
+        "@id": "https://wakiee.live/#website"
+      },
+      "about": {
+        "@id": "https://wakiee.live/#webapp"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://wakiee.live/video#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wakiee.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Random Video Chat",
+          "item": "https://wakiee.live/video"
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  ogUrl={canonical}
+  ogType="website"
+  twitterTitle={title}
+  twitterDescription={description}
+  schema={schema}
+>
+  <VideoShell client:load />
+</BaseLayout>
+
 
