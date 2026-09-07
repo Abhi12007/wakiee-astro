@@ -1,1 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import VoiceShell from "../components/VoiceShell.jsx";
+
+const title =
+  "Random Voice Chat | Free Voice Chat with Strangers | Wakiee";
+
+const description =
+  "Start a free random voice chat with strangers without login on Wakiee. Enjoy anonymous voice chat, high-quality audio, AI-assisted moderation, human reporting, no signup, no downloads, and secure online voice calls with people worldwide.";
+
+const keywords =
+  "online voice calls free, random voice chat, voice chat with strangers, voice call with strangers, voice chat, voice call, free voice chat, online voice chat, voice chat online, talk on voice call, chat with strangers, stranger chat, random chat, anonymous voice chat, random audio call, audio call with strangers, random call, random talk, random voice call, talk to strangers voice chat, anonymous voice call, stranger voice call, voice call website";
+
+const canonical = "https://wakiee.live/voice";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://wakiee.live/voice#webapp",
+      "name": "Wakiee Voice Chat",
+      "url": "https://wakiee.live/voice",
+      "applicationCategory": "CommunicationApplication",
+      "operatingSystem": "All",
+      "description":
+        "Wakiee is a random voice chat platform to talk with strangers online instantly.",
+      "isPartOf": {
+        "@id": "https://wakiee.live/#website"
+      },
+      "publisher": {
+        "@id": "https://wakiee.live/#organization"
+      }
+    },
+
+    {
+      "@type": "WebPage",
+      "@id": "https://wakiee.live/voice#webpage",
+      "url": "https://wakiee.live/voice",
+      "name": title,
+      "description": description,
+      "isPartOf": {
+        "@id": "https://wakiee.live/#website"
+      },
+      "about": {
+        "@id": "https://wakiee.live/voice#webapp"
+      }
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://wakiee.live/voice#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wakiee.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Voice Chat",
+          "item": "https://wakiee.live/voice"
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  robots="index, follow, max-image-preview:large"
+  canonical={canonical}
+  ogTitle="Free Voice Chat – Wakiee"
+  ogDescription="Use Wakiee voice chat to talk with strangers worldwide. Start anonymous voice calls instantly."
+  ogImage="https://wakiee.live/android-chrome-192x192.png"
+  ogUrl={canonical}
+  ogType="website"
+  twitterTitle="Free Voice Chat – Wakiee"
+  twitterDescription="Talk to strangers using random voice chat and connect globally."
+  twitterImage="https://wakiee.live/android-chrome-192x192.png"
+  schema={schema}
+>
+  <VoiceShell client:load />
+</BaseLayout>
 
