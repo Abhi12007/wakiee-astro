@@ -1,1 +1,108 @@
 
+---
+
+---
+
+<header class="landing-header-nav">
+  <nav class="navbar">
+
+
+<!-- Wakiee Logo -->
+<div
+  class="wakiee-logo"
+  onclick="window.location.href='/'"
+  style="cursor: pointer;"
+>
+  <img
+    src="/wakiee.svg"
+    alt="Wakiee"
+    class="wakiee-logo-svg"
+    loading="eager"
+  />
+</div>
+
+<!-- Mobile Hamburger -->
+<button
+  class="hamburger"
+  id="navbar-hamburger"
+  type="button"
+  aria-label="Open navigation menu"
+  aria-expanded="false"
+>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</button>
+
+<!-- Navigation Links -->
+<div class="nav-links" id="navbar-links">
+
+  <!-- Back button -->
+  <button
+    class="back-btn"
+    id="navbar-back"
+    type="button"
+    title="Go Back"
+    aria-label="Go Back"
+  >
+    ⬅
+  </button>
+
+  <a href="/about" onclick="closeNavbarMenu()">About Us</a>
+  <a href="/contact" onclick="closeNavbarMenu()">Contact Us</a>
+  <a href="/blog" onclick="closeNavbarMenu()">Blog</a>
+  <a href="/faq" onclick="closeNavbarMenu()">FAQ</a>
+
+</div>
+
+
+  </nav>
+</header>
+
+<script>
+  const hamburger = document.getElementById("navbar-hamburger");
+  const navLinks = document.getElementById("navbar-links");
+  const backButton = document.getElementById("navbar-back");
+
+  function closeNavbarMenu() {
+    navLinks?.classList.remove("open");
+
+    hamburger?.setAttribute("aria-expanded", "false");
+
+    hamburger?.querySelectorAll(".bar").forEach((bar) => {
+      bar.classList.remove("open");
+    });
+  }
+
+  function toggleNavbarMenu() {
+    const isOpen = navLinks?.classList.toggle("open") ?? false;
+
+    hamburger?.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
+
+    hamburger?.querySelectorAll(".bar").forEach((bar) => {
+      bar.classList.toggle("open", isOpen);
+    });
+  }
+
+  hamburger?.addEventListener("click", toggleNavbarMenu);
+
+  backButton?.addEventListener("click", () => {
+    window.location.href = "/";
+  });
+
+  /*
+   * Hide Back button on homepage.
+   * Show it on all other pages.
+   */
+  if (window.location.pathname === "/") {
+    backButton?.style.setProperty("display", "none");
+  }
+
+  /*
+   * Make function available to inline onclick handlers.
+   */
+  window.closeNavbarMenu = closeNavbarMenu;
+</script>
