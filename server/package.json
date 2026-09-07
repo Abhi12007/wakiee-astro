@@ -1,0 +1,15 @@
+{
+  "name": "omegle-clone-server",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "livekit-server-sdk": "^0.5.4",
+    "node-fetch": "^3.3.2"
+  }
+}
