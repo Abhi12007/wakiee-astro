@@ -1,0 +1,1402 @@
+/* ============== ROOMS LOBBY  (MOBILE FIRST) ============== */
+/* =====================================================
+ROOM LOBBY CONTAINER STYLE (similar to voice page)
+ONLY affects name + room number page
+===================================================== */
+
+/* Outer container with grey border like voice page */
+.rooms-page-container-room {
+
+  max-width:640px;
+  width:100%;
+
+  margin:0 auto;
+
+  border:2px solid #3a3a3a;
+  border-radius:16px;
+
+background: linear-gradient(160deg, #1e1b4b, #0f172a, #1e3a8a);
+
+  box-sizing:border-box;
+
+}
+
+/* Inner lobby box should be transparent now */
+.rooms-lobby-gradient-room {
+
+  background: transparent;
+  box-shadow:none;
+
+}
+
+/*---------------------------------------------------ban user----------------------*/
+.ban-user-btn {
+  background: #7f1d1d;
+  color: #fff;
+  border: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.ban-user-btn:hover {
+  filter: brightness(1.1);
+}
+
+/*----------------------------------------------------------------------------------*/
+/*------------------------room setting gear button-----------------------*/
+/* ⚙️ Room Settings Button */
+.room-settings-btn {
+  margin-right: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: #1f2937;
+  color: #e5e7eb;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.room-settings-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* Settings Modal */
+.room-settings-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15,23,42,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 25;
+}
+
+.room-settings-modal {
+  background: #0d1528;
+  border-radius: 0.9rem;
+  padding: 1rem;
+  max-width: 240px;
+  width:50%;
+  position: relative;
+  border: 1px solid #1e293b;
+}
+
+.room-settings-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: #b91c1c;
+  color: white;
+  cursor: pointer;
+}
+
+.room-settings-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: #e5e7eb;
+}
+
+.room-settings-input {
+  width: 90%;
+  padding: 0.45rem;
+  border-radius: 0.6rem;
+  border: 1px solid #334155;
+  background: #020617;
+  color: white;
+  margin-bottom: 0.6rem;
+}
+
+.room-settings-save {
+  width: 50%;
+  border: none;
+  padding: 0.45rem;
+  border-radius: 0.6rem;
+  background: #4a6cff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Lobby room name */
+.rooms-summary-roomname {
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.rooms-summary-room {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+/* Room name with pipes */
+.room-name-centered {
+  font-weight: 600;
+    margin: 0 0.5rem;   /* space before & after */
+    padding: 0 0.25rem;    /* space inside | | */
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+/*----------------------------------------------------------------------*/
+
+
+
+/* ---------------- ROOM CHATS (Desktop default) ---------------- */
+
+/* 💬 Chat icon button next to mic */
+.chat-icon-btn {
+  margin-left: 25px;          /* right of mic */
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #1f2937;
+  color: #e5e7eb;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: 0.2s ease;
+}
+
+.chat-icon-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* Active (chat open) */
+.chat-icon-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+
+.room-chat-box {
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  transform: translateX(-50%);
+
+  width: 55%;
+  max-width: 340px;
+
+  background: #020617;
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+
+  /* responsive height */
+  height:30vh;
+  z-index: 6;
+}
+
+.room-chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: .7rem;
+}
+
+.room-chat-empty {
+  text-align: center;
+  color: #9ca3af;
+  padding: 12px 0;
+}
+
+.room-chat-message {
+  margin-bottom: 6px;
+  font-size: 0.7rem;
+  color: #e5e7eb;
+}
+
+/* -------- INPUT + SEND IN SAME ROW -------- */
+
+.room-chat-input-row {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #1f2937;
+  padding: 6px;
+  gap: 6px;
+  
+}
+
+.room-chat-input {
+  flex: 1;
+  min-width: 0;   /* ✔ allow shrinking instead of pushing button out */
+  background: #020617;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  color: white;
+  padding: 9px 10px;
+  outline: none;
+  font-size: 0.7rem;
+}
+
+.room-chat-send {
+  height: 36px;
+  border-radius: 10px;
+  background: #2563eb;
+  border: none;
+  color: white;
+  padding: 0 14px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+/*--------------------------------------------------------------------------------*/
+/* =================== SCREEN LOCKED OVERLAY =================== */
+
+.profile-locked-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.55rem;
+  text-align: center;
+  font-weight: 700;
+  color: #facc15;
+
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 999px;
+
+  pointer-events: none;
+}
+
+.rooms-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /*puts text below the box not right side*/
+  justify-content: flex-start;  /* align to top-start instead of center */
+  align-items: flex-start;      /* ⬆ push content(box) to top */        
+  padding: 3rem 1rem 1rem;      /* extra top padding to shift upward   3 4 5 6 7 8 .. in the first rem moves it dowm ,right now 3 make 5 when adding ads, one add up one add down */
+/*  background: #0b1220;  */
+}
+
+
+.rooms-lobby-box {
+  width: 90%;
+  max-width: 400px;
+  background: #333c4d;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;            /* keep it centered on all screens */
+  margin-bottom:70px;
+}
+
+
+.rooms-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.rooms-warning {
+  font-size: 0.8rem;
+  color: #c0392b;
+  margin-bottom: 0.75rem;
+}
+
+/* avatar carousel */
+.avatar-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.avatar-circle {
+  width: 84px;
+  height: 84px;
+  border-radius: 999px;
+  border: 2px solid #4a6cff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+
+}
+
+.avatar-emoji {
+  font-size: 3.3rem;   /*size of avatar in avatar selector */
+}
+
+.avatar-arrow {
+  border: none;
+  background: transparent;
+  color: #4a6cff;
+   font-size: 2.6rem; /* increased arrow size */
+  padding: 0.3rem 0.6rem; /* more clickable area */
+  cursor: pointer;
+}
+
+/* Speaking animation (waves) */
+
+.profile-slot.filled.speaking .profile-avatar-circle {
+  position: relative;
+  border-color: #4a6cff;
+  box-shadow: 0 0 0 3px rgba(74, 108, 255, 0.45);
+}
+
+.profile-slot.filled.speaking .profile-avatar-circle::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  border: 2px solid rgba(74, 108, 255, 0.4);
+  animation: speak-pulse 1s ease-out infinite;
+}
+
+@keyframes speak-pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
+/* Admin badge */
+
+.admin-badge {
+  display: inline-block;
+  padding: 0.05rem 0.35rem;
+  margin-right: 0.25rem;
+  border-radius: 999px;
+  background: #ffb74d;
+  color: #3b2b00;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+
+/* Label above inputs */
+.rooms-form .field-label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.65rem;
+  text-align: center;
+}
+
+/* Input fields same size as button */
+.rooms-form input {
+  width: 72%;                     /* same width as button */
+  max-width: 240px;               /* centered & consistent on laptop */
+  padding: 0.5rem 0.6rem;
+  
+  margin: 0.35rem auto 0.8rem;    /* centered vertically + bottom space */
+  display: block;
+  
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 0.7rem;
+  
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  color: #e7eaf3;                 /* better contrast on dark inputs */
+}
+
+/* Remove placeholder visuals for clean UI */
+.rooms-form input::placeholder {
+  color: #9ca3af;     /* change color */
+  font-size: 0.70rem; /* adjust size */
+  text-align: left;   /* align placeholder to left */
+  opacity: 1;         /* make placeholder fully visible */
+  padding-left: 0.35rem; /* optional: shift text a bit right */
+}
+
+
+.rooms-error {
+  color: #c0392b;
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+
+/* Make Create/Join match input width */
+.rooms-primary-btn {
+  width: 55%;
+  max-width: 180px;
+  margin: 0.1rem auto;
+  padding: 0.55rem 0;
+  display: block;
+  border-radius: 0.8rem;
+  font-size: 0.93rem;
+  font-weight: 600;
+
+  background: #4a6cff;   /* 🔵 restore original Wakiee blue */
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+/* ============== ROOM VIEW (INSIDE LIVEKITROOM) ============== */
+
+.livekit-room-root {
+  min-height: 100vh;
+}
+
+.room-view {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.room-top-bar {
+  width: 95%;
+  margin: 0.5rem auto;     /* Center it */
+  background: #0d1528;
+  color: #e5e7eb;
+  padding: 0.65rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+  
+  border-radius: 0.9rem; /* Curved edges */
+  border: 1px solid #1e293b;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+.room-top-bar {
+  margin-bottom: 0.6rem;
+}
+
+
+.room-code-display {
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+/* Wrap for room code + status text */
+.room-code-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+/* "Room is locked" text under room code */
+.room-locked-text {
+  font-size: 0.68rem;          /* smaller than room code */
+  margin-top: 0.15rem;
+  color: #cbd5e1;              /* SAME grey tone as Room Code */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.85;               /* soft, not too bright */
+}
+
+.room-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+/* Center Activity text block */
+.room-activity-trigger,
+.room-activity-spacer {
+  flex: 1;
+  text-align: center;
+}
+
+.room-activity-trigger {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  cursor: pointer;
+  user-select: none;
+}
+
+.room-activity-trigger:hover {
+  text-decoration: underline;
+}
+
+/* Spacer for non-admins (keeps layout balanced) */
+.room-activity-spacer {
+  pointer-events: none;
+}
+
+
+/* Modern mic UI button */
+.mic-btn-modern {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: #4a6cff;
+  color: #fff;
+  font-size: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 5px 12px rgba(74,108,255,0.4);
+}
+
+.mic-btn-modern:hover {
+  filter: brightness(1.12);
+}
+
+.mic-btn-modern:active {
+  transform: scale(0.92);
+}
+
+/* Mic shape */
+.mic-icon {
+  width: 14px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 6px;
+  position: relative;
+}
+
+.mic-icon::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 3px;
+}
+
+/* Red slash for muted state */
+.mic-slash {
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background: #ff4d4d;
+  transform: rotate(-45deg);
+  border-radius: 4px;
+  pointer-events: none;
+}
+/* Muted state */
+.mic-btn-modern.muted {
+  background: #9b1c1c; /* deep red */
+  box-shadow: 0 5px 12px rgba(200,20,20,0.4);
+}
+.mic-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mic-muted-text {
+  margin-top: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #ff4d4d; /* red */
+}
+
+
+/* IMPROVED LOCK BUTTON */
+/* ————— Modern 3-part Lock Button ————— */
+.lock-btn-modern {
+  border: none;
+  background: #4a6cff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(74,108,255,0.4);
+  transition: 0.25s ease;
+  position: relative;
+  width: 45px;
+  height: 45px;
+}
+
+.lock-btn-modern:hover {
+  filter: brightness(1.12);
+}
+
+.lock-btn-modern:active {
+  transform: scale(0.92);
+}
+
+/* The Lock Icon Frame */
+.lock-icon {
+  width: 22px;
+  height: 28px;
+  position: relative;
+}
+
+/* Shackle */
+.shackle {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #fff;
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  transform: translateX(-50%);
+  transition: 0.25s ease;
+  transform-origin: bottom center;
+}
+
+/* Body */
+.body {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 18px;
+  height: 16px;
+  background: #fff;
+  border-radius: 4px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Keyhole */
+.keyhole {
+  width: 4px;
+  height: 8px;
+  background: #000000; /* Black hole */
+  border-radius: 2px;
+  position: relative;
+  top: 2px; /* Move the rectangular part slightly down */
+}
+
+/* Keyhole round head */
+.keyhole::before {
+  content: "";
+  position: absolute;
+  top: -2px; /* move down a bit (was -4px) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #000000; /* Black top head */
+  border-radius: 50%;
+}
+
+/* LOCKED STATE — closed, yellow */
+.lock-btn-modern.locked {
+ background: #22c55e;
+  /*box-shadow: 0 4px 14px rgba(250,204,21,0.4);*/
+  color: #111;
+}
+
+
+/* UNLOCKED STATE — shackle rotates open */
+.lock-btn-modern.unlocked .shackle {
+  transform: translateX(-50%) rotate(-28deg);
+}
+
+
+
+.exit-btn {
+  border: none;
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.6rem;
+  font-size: 0.8rem;
+  background: #e74c3c;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* profiles 5 left + 5 right */
+
+.profiles-container {
+  flex: 1;
+  position: relative; 
+  display: flex;
+  justify-content: space-between; /* push columns to extreme sides */
+  align-items: flex-start;
+  padding: 0.8rem 1rem;
+}
+
+.profiles-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;          /* more vertical spacing (see point 3 too) */
+  width: 64px;          /* just wide enough for circle + name */
+  flex: 0 0 auto;       /* do not stretch into middle */
+}
+
+
+.profile-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-avatar-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;   /* ⭐️ anchor overlay to avatar */
+}
+
+
+.profile-avatar-circle span {        /*size of avatar inside profiles*/
+  font-size: 2rem;
+}
+
+/* Container for ADMIN + Name (stack centered) */
+.profile-name {
+  display: flex;
+  flex-direction: column;   /* stack top -> bottom */
+  align-items: center;      /* center horizontally */
+  justify-content: center;
+  text-align: center;
+  margin-top: 0.25rem;
+  max-width: 72px;
+  word-break: break-word;
+}
+
+/* ADMIN badge styling stays same but centered */
+.room-admin-badge {
+  margin: 0 0 0.15rem 0;  /* little space below badge */
+  align-self: center;
+}
+
+/* Username */
+.profile-username {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #e5e7eb;
+}
+
+.empty-circle {
+  border-style: dashed;
+}
+
+/* Floating mic button between the two profile stacks */
+.mic-center-floating {
+  position: absolute;
+  left: 50%;
+  top: 60%;                     /* roughly around the 4th slot vertically    for moving up 60 50 40  for moving down 70 80 90*/
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;         /* you can click it */
+}
+
+
+/* ============== Activity inside rooms ============== */
+.room-code-display {
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex: 1; /* take left space */
+}
+
+.room-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: flex-end;
+  flex: 1; /* take right space */
+}
+
+/* Center "Activity" in top bar */
+.room-activity-trigger {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  cursor: pointer;
+  user-select: none;
+}
+
+.room-activity-trigger:hover {
+  text-decoration: underline;
+}
+/* Activity dropdown between profile stacks */
+.activity-dropdown {
+  position: absolute;
+  left: 50%;
+  top: 0%; /* adjust as you like: 30–40% to sit between top bar & mic */
+  transform: translateX(-50%);
+  
+  background: #0d1528;
+  border-radius: 0.9rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #1e293b;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 50%;
+  max-width: 260px;
+  z-index: 5; /* above mic and profiles */
+}
+
+/* Activity menu options */
+.activity-option {
+  border: none;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.7rem;
+  background: #27334e;      /* matches lobby input color */
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.activity-option:hover {
+  filter: brightness(1.1);
+}
+
+.activity-option:active {
+  transform: scale(0.96);
+}
+
+/*  ..............................       Activity end      ................................             */
+
+/*  ..............................      GD start    ................................             */
+/* Activity dropdown between profile stacks */
+
+.gd-topic-box {
+  position: absolute;
+  left: 50%;
+  top: 0%;              /*GD box in the starting*//* below dropdown, above mic */
+  transform: translateX(-50%);
+  margin-top: 0.35rem;
+  padding: 0.75rem 0.6rem 0.55rem;
+  border-radius: 0.7rem;
+  background: #111827;
+  border: 1px solid #1f2937;
+  width: 50%;
+  max-width: 260px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.7);
+}
+
+/* Red close (X) button — admin only */
+.gd-topic-close {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.35rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: none;
+  background: #b91c1c;
+  color: #ffffff;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.gd-topic-close:hover {
+  filter: brightness(1.08);
+}
+
+.gd-topic-close:active {
+  transform: scale(0.92);
+}
+
+.gd-topic-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-bottom: 0.2rem;
+}
+
+.gd-topic-text {
+  font-size: 0.85rem;
+  color: #e5e7eb;
+  margin-bottom: 0.4rem;
+}
+
+/* Reload topic button — admin only */
+.gd-reload-btn {
+  width: 100%;
+  border: none;
+  padding: 0.35rem 0.4rem;
+  border-radius: 0.65rem;
+  background: #4a6cff;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.gd-reload-btn:hover {
+  filter: brightness(1.1);
+}
+
+.gd-reload-btn:active {
+  transform: scale(0.96);
+}
+
+/*  ..............................       GD End      ................................             */
+
+/* ====== Rooms summary panel above avatar selector ====== */
+
+.rooms-summary-box {
+  margin-bottom: 1rem;
+  background: #111827;
+  border-radius: 0.8rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #1f2937;
+}
+
+.rooms-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  color: #e5e7eb;
+}
+
+.rooms-summary-heading {
+  font-weight: 600;
+}
+
+.rooms-summary-total {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  color: #22c55e; /* ✔ Emerald Green */
+  
+}
+
+                                        /*................. Scrollable list area................ */
+/* Scrollable rooms list area */
+.rooms-summary-list {
+  max-height: 95px;         /* scrollbar shows at 6th room */
+  overflow-y: auto;
+  padding-right: 0.4rem;    /* space before scrollbar */
+  padding-left: 0.1rem;
+}
+
+/* Webkit browsers (Chrome, Edge, Safari) */
+.rooms-summary-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rooms-summary-list::-webkit-scrollbar-track {
+  background: #1a2438;
+  border-radius: 10px;
+}
+
+.rooms-summary-list::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 10px;
+}
+
+.rooms-summary-list::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Firefox support */
+.rooms-summary-list {
+  scrollbar-width: thin;
+  scrollbar-color: #6b7280 #1a2438;
+}
+
+.rooms-summary-capacity {
+  margin-right: 0.4rem; /* breathing room for scrollbar */
+}
+
+         /*................. Scrollable list area END................ */
+
+/* Each row: "Room : XYZ   X/10" */
+.rooms-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  padding: 0.18rem 0;
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.35);
+}
+
+.rooms-summary-row:last-child {
+  border-bottom: none;
+}
+
+.rooms-summary-room {
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.rooms-summary-capacity {
+  color: #9ca3af;
+  font-variant-numeric: tabular-nums; /* neat aligned numbers */
+}
+
+/* Empty state text */
+.rooms-summary-empty {
+  font-size: 0.78rem;
+  color: #6b7280;
+  text-align: center;
+  padding: 0.35rem 0;
+}
+
+/* =================== Admin Kick Feature =================== */
+
+/* Clickable profiles (admin only) */
+.profile-slot.kickable {
+  cursor: pointer;
+}
+
+.profile-slot.kickable:hover .profile-avatar-circle {
+  border-color: #f97316; /* orange border on hover */
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.4);
+}
+
+/* Small banner above mic: "<name> kicked by admin" */
+.kick-notice-banner {
+  position: absolute;
+  left: 50%;
+  top: 8%; /* adjust as needed */
+  transform: translateX(-50%);
+  background: #111827;
+  color: #f9fafb;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  border: 1px solid #f97316;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+  z-index: 6; /* above profiles & mic */
+}
+
+/* Backdrop for kick modal (inside room area) */
+.kick-modal-backdrop {
+  position: absolute;          /* stays within room-view / profiles area */
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.65);  /* semi-dark blur */
+  z-index: 20;                 /* above profiles, below nav etc */
+}
+
+/* Kick modal box (between the two profile stacks) */
+.kick-modal {
+  background: #0d1528; /* match dropdown and GD */
+  border-radius: 0.9rem;
+  padding: 0.85rem 0.95rem 0.95rem;
+  width: 50%;           /* main width so it sits in the middle gap */
+  max-width: 260px;      /* and max width on laptop */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+  position: relative;
+}
+
+/* Red X button (top-right) */
+.kick-modal-close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.45rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: none;
+  background: #b91c1c;
+  color: #f9fafb;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.kick-modal-close:hover {
+  filter: brightness(1.1);
+}
+
+/* Title & text */
+.kick-modal-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.kick-modal-text {
+  font-size: 0.85rem;
+  color: #d1d5db;
+  margin-bottom: 0.65rem;
+}
+
+.kick-modal-username {
+  color: #f97316;
+  font-weight: 600;
+}
+
+/* Actions stacked vertically */
+.kick-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.kick-modal-actions button {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: none;                /* No border */
+  border-radius: 0.65rem;      /* Rounded corners */
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+
+/* Base button style for both Mute & Kick */
+.kick-modal-btn {
+  width: 100%;
+  border: none;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.kick-modal-btn:hover {
+  filter: brightness(1.06);
+}
+
+.kick-modal-btn:active {
+  transform: scale(0.97);
+}
+
+/* 🔹 Mute button – light grey */
+.kick-modal-mute-btn {
+  background: #d1d5db;   /* light grey */
+  color: #111827;        /* dark text */
+}
+
+.kick-modal-mute-btn:hover {
+  background: #e5e7eb;   /* slightly lighter grey */
+}
+
+/* 🔴 Kick button – strong red */
+.kick-modal-kick-btn {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.kick-modal-kick-btn:hover {
+  background: #ef4444;
+}
+
+/* =================== Admin Kick Feature END =================== */
+
+
+/* =================== Admin MUTE Feature =================== */
+/* Dimmed avatar when muted by admin */
+.profile-avatar-muted {
+  opacity: 0.45;
+  position: relative;
+}
+
+/* Wrapper for the mic icon over avatar */
+.profile-mic-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Small mic-with-slash icon inside profile */
+.profile-mic-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.85);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-mic-icon::before {
+  content: '';
+  width: 7px;
+  height: 11px;
+  background: #ffffff;
+  border-radius: 4px;
+  display: block;
+}
+
+.profile-mic-icon::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background: #ef4444;
+  border-radius: 999px;
+  transform: rotate(-40deg);
+}
+
+/* =================== Admin MUTE Feature =================== */
+
+@media (max-width: 480px) {
+  /*-----------------------chat box for mobile------------ */
+    /*--- Chat toggle ---*/
+  .room-chats-toggle {
+    width: 30%;
+    max-width: 260px;
+    top: 18%;
+    padding: 7px 10px;
+    font-size: 0.85rem;
+  }
+
+  /*--- Chat box ---*/
+  .room-chat-box {
+    width: 55%;
+    max-width: 290px;
+    top: 25%;
+
+    /* taller but still safe */
+    height: 25vh;
+  }
+
+  .room-chat-messages {
+    font-size: 0.7rem;
+  }
+
+  .room-chat-input-row {
+    padding: 6px;
+    gap: 5px;
+  }
+
+  .room-chat-input {
+    font-size: 0.7rem;
+    padding: 7px 6px;
+  }
+
+  .room-chat-send {
+    padding: 6px 12px;
+    height: 30px;
+    font-size: 0.78rem;
+  }
+ 
+  /*----------------------------------------------------------------------------------------------*/
+  .room-top-bar {
+     max-width: 95%;
+    border-radius: 1.2rem;
+  }
+   .gd-topic-box {      /*GD Topic box size for mobile*/
+    width: 50%;        /* smaller width */
+    max-width: 240px;  /* reduced size for mobile */
+    top: 0%;         /*gd box in the starting*/ /* move slightly lower so it doesn't overlap avatars 0 =top*/
+  }
+
+  .activity-dropdown {
+    width: 50%;          /*Activity box size for mobile*/
+    max-width: 240px;
+    top: 0%;          /* adjust dropdown position on mobile  ,0= top*/
+  }
+}
+
+@media (min-width: 768px) {
+  .rooms-lobby-box {
+    max-width: 420px;
+  }
+
+  .profiles-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1rem 3rem; /* pushes columns further apart */
+    justify-content: space-between; /* ensures wide separation */
+    gap: 25rem; /* fixed middle gap between vertical stack of profiles*/
+  }
+}
+/* =================== ADVERTISEMENT BANNER =================== */
+.room-ad-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #334155;
+}
+.rooms-ad-label {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: rgba(220, 38, 38, 0.9); /* Red background */
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+/* Mobile styling */
+.room-ad-container {
+  top: 70%; /* Adjust to move up/down */
+  width: 95%; /* Full width on mobile */
+  height: 20vh; /* Adjustable height */
+}
+
+.room-ad-container:hover {
+  transform: translateX(-50%) scale(1.02);
+}
+
+.room-ad-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Desktop styling */
+@media (min-width: 768px) {
+  .room-ad-container {
+    top: 70%; /* Adjust for desktop positioning */
+    width: 90%; /* Fixed width matching column distance */
+    height: 20vh; /* Adjustable height */
+    max-width: 600px;
+  }
+}
