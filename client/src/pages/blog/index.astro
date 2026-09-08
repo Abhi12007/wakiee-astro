@@ -1,1 +1,515 @@
+---
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCard from "../../blog/components/PostCard.astro";
+import "../../blog/blog.css";
+
+const title =
+"Wakiee Blog | Video Chat, Voice Chat & Online Communication Tips";
+
+const description =
+"Explore guides, tips, and educational articles about online communication, video chat, voice chat, digital safety, language learning, communication skills, and responsible conversations on Wakiee.";
+
+const keywords =
+"wakiee blog,wakiee guide,talk to strangers, video chat tips, online communication, improve English speaking, stranger chat blog, chat blog, chat tips, talk to strangers guide, random chat advice, online chat tips, stranger chat safety, call guides";
+
+const canonical = "https://wakiee.live/blog";
+
+const categories = [
+"All",
+"Guide",
+"Voice and Video",
+"Culture",
+"Tips",
+];
+
+const posts = [
+{
+slug: "how-to-spot-fake-profiles",
+title:
+"How to Spot Fake Profiles in Random Video Chats Before You Answer",
+image: "/src/blog/pictures/31.webp",
+category: "Tips",
+date: "25 August, 2026",
+readTime: "15 min read",
+excerpt:
+"Learn how to spot fake profiles in random video chats before answering. Discover common scam warning signs, AI-generated photos, suspicious behavior, and practical safety tips for talking to strangers online.",
+},
+
+{
+slug: "why-first-30-seconds-matter",
+title:
+"Why Your First 30 Seconds in a Random Video Call Matter",
+image: "/src/blog/pictures/32.webp",
+category: "Guide",
+date: "24 August, 2026",
+readTime: "10 min read",
+excerpt:
+"Learn why the first 30 seconds of a random video call matter and how small communication choices can create better conversations with strangers online.",
+},
+
+{
+slug:
+"complete-guide-for-meaningful-conversations-with-strangers-online",
+title:
+"The Complete Guide to Having Meaningful Conversations with Strangers Online",
+image: "/src/blog/pictures/33.webp",
+category: "Guide",
+date: "20 August, 2026",
+readTime: "12 min read",
+excerpt:
+"Learn practical ways to have meaningful conversations with strangers online, keep discussions engaging, communicate respectfully, and build genuine connections.",
+},
+
+{
+slug: "conversation-starters-that-actually-work",
+title:
+"Conversation Starters That Actually Work in Random Video Chats",
+image: "/src/blog/pictures/34.webp",
+category: "Guide",
+date: "18 August, 2026",
+readTime: "10 min read",
+excerpt:
+"Discover conversation starters that can help you avoid awkward silence and create more natural conversations during random video chats.",
+},
+
+{
+slug: "how-to-end-a-call-politely",
+title:
+"How to End an Awkward Random Video Call Politely",
+image: "/src/blog/pictures/35.webp",
+category: "Guide",
+date: "15 August, 2026",
+readTime: "8 min read",
+excerpt:
+"Learn simple and respectful ways to end an awkward random video call without creating unnecessary conflict or discomfort.",
+},
+
+{
+slug: "voice-chat-vs-video-chat",
+title:
+"Voice Chat vs Video Chat: Which Builds Better Friendships?",
+image: "/src/blog/pictures/36.webp",
+category: "Voice and Video",
+date: "12 August, 2026",
+readTime: "9 min read",
+excerpt:
+"Compare voice chat and video chat to understand how each format affects communication, comfort, trust, and online friendships.",
+},
+
+{
+slug: "how-wakiee-was-born",
+title:
+"How Wakiee Was Born — Random Video Calling Website",
+image: "/src/blog/pictures/1.webp",
+category: "Voice and Video",
+date: "",
+readTime: "",
+excerpt:
+"Discover the story behind Wakiee and the idea of creating a platform for spontaneous conversations and connections with people around the world.",
+},
+
+{
+slug: "online-etiquette-communicate-with-strangers",
+title:
+"Online Etiquette: How to Talk to Strangers the Right Way",
+image: "/src/blog/pictures/2.webp",
+category: "Tips",
+date: "20 June, 2026",
+readTime: "12 min read",
+excerpt:
+"Learn practical online etiquette tips for communicating respectfully and safely with strangers.",
+},
+
+{
+slug:
+"what-i-learned-talking-to-people-from-20-different-countries",
+title:
+"What I Learned Talking to People from 20 Different Countries on Wakiee",
+image: "/src/blog/pictures/3.webp",
+category: "Culture",
+date: "10 June, 2026",
+readTime: "8 min read",
+excerpt:
+"Explore lessons learned from conversations with people from different countries and cultures on Wakiee.",
+},
+
+{
+slug: "make-friends-online-across-cultures",
+title:
+"How to Make Friends Online Respectfully Across Cultures",
+image: "/src/blog/pictures/4.webp",
+category: "Culture",
+date: "5 June, 2026",
+readTime: "11 min read",
+excerpt:
+"Learn how to make friends online while respecting cultural differences and communicating thoughtfully.",
+},
+
+{
+slug: "culture-and-friendship",
+title:
+"Culture & Friendship: How Understanding Cultures Builds Stronger Online Connections",
+image: "/src/blog/pictures/5.webp",
+category: "Culture",
+date: "25 May, 2026",
+readTime: "9 min read",
+excerpt:
+"Understand how cultural awareness can improve online communication and help create stronger friendships.",
+},
+
+{
+slug:
+"tips-for-practicing-a-new-language-with-native-speakers-online",
+title:
+"Best Tips for Practicing a New Language with Native Speakers Online",
+image: "/src/blog/pictures/6.webp",
+category: "Tips",
+date: "20 May, 2026",
+readTime: "",
+excerpt:
+"Discover useful ways to practice a new language with native speakers through online conversations.",
+},
+
+{
+slug: "how-random-video-chatting-can-improve-your-english",
+title:
+"How Random Video Chatting Can Improve Your English Speaking Skills",
+image: "/src/blog/pictures/7.webp",
+category: "Guide",
+date: "15 May, 2026",
+readTime: "10 min read",
+excerpt:
+"Learn how random video conversations can help improve English speaking, listening, confidence, and communication skills.",
+},
+
+{
+slug:
+"cultural-phrases-you-should-know-before-talking-to-foreigners",
+title:
+"Cultural Phrases You Should Know Before Talking to Foreigners",
+image: "/src/blog/pictures/8.webp",
+category: "Culture",
+date: "5 May, 2026",
+readTime: "12 min read",
+excerpt:
+"Learn useful cultural phrases and communication considerations before talking with people from other countries.",
+},
+
+{
+slug: "are-random-chat-apps-safe",
+title:
+"Are Random Chat Apps Safe? Here’s What You Should Know",
+image: "/src/blog/pictures/9.webp",
+category: "Voice and Video",
+date: "4 May, 2026",
+readTime: "15 min read",
+excerpt:
+"Understand the main safety considerations when using random chat apps and talking with strangers online.",
+},
+
+{
+slug: "top-alternatives-to-omegle",
+title:
+"Top Alternatives to Omegle in 2026 — Safer & Smarter Options",
+image: "/src/blog/pictures/10.webp",
+category: "Voice and Video",
+date: "2 May, 2026",
+readTime: "11 min read",
+excerpt:
+"Explore alternatives to Omegle and learn what features and safety considerations matter when choosing a random chat platform.",
+},
+
+{
+slug:
+"how-ai-is-changing-the-way-we-meet-new-people-online",
+title:
+"How AI Is Changing the Way We Meet New People Online",
+image: "/src/blog/pictures/11.webp",
+category: "Voice and Video",
+date: "30 April, 2026",
+readTime: "10 min read",
+excerpt:
+"Explore how artificial intelligence is changing online communication, moderation, recommendations, translation, and social discovery.",
+},
+
+{
+slug:
+"how-talking-to-strangers-can-build-your-confidence",
+title:
+"How Talking to Strangers Can Build Your Confidence",
+image: "/src/blog/pictures/122.webp",
+category: "Guide",
+date: "23 April, 2026",
+readTime: "9 min read",
+excerpt:
+"Learn how conversations with strangers can help develop confidence, communication skills, and social comfort.",
+},
+
+{
+slug: "the-psychology-behind-online-friendships",
+title:
+"The Psychology Behind Online Friendships",
+image: "/src/blog/pictures/12.webp",
+category: "Guide",
+date: "20 April, 2026",
+readTime: "8 min read",
+excerpt:
+"Explore the psychology behind online friendships and why meaningful connections can develop through digital communication.",
+},
+
+{
+slug:
+"why-humans-need-connection-even-through-a-screen",
+title:
+"Why Humans Need Connection — Even Through a Screen",
+image: "/src/blog/pictures/13.webp",
+category: "Guide",
+date: "18 April, 2026",
+readTime: "11 min read",
+excerpt:
+"Understand why human connection matters and how online conversations can help people connect across distance.",
+},
+
+{
+slug:
+"random-video-call-talk-to-strangers-online-in-2026",
+title:
+"Random Video Call — Talk to Strangers Online in 2026",
+image: "/src/blog/pictures/14.webp",
+category: "Voice and Video",
+date: "15 April, 2026",
+readTime: "13 min read",
+excerpt:
+"Learn how random video calls work and how people can meet and communicate with strangers online.",
+},
+
+{
+slug:
+"video-chat-online-talk-with-friends-and-strangers",
+title:
+"Video Chat Online — Talking in Real Time with Friends or Strangers",
+image: "/src/blog/pictures/15.webp",
+category: "Voice and Video",
+date: "14 April, 2026",
+readTime: "10 min read",
+excerpt:
+"Learn about real-time online video chat and how people use video conversations to connect with friends and strangers.",
+},
+
+{
+slug: "why-did-omegle-shut-down",
+title:
+"Why Did Omegle Shut Down? The Real Reason Behind It",
+image: "/src/blog/pictures/16.webp",
+category: "Voice and Video",
+date: "13 April, 2026",
+readTime: "9 min read",
+excerpt:
+"Learn about Omegle's shutdown, the challenges surrounding random chat platforms, and what came after it.",
+},
+
+{
+slug:
+"1v1-chat-for-private-and-anonymous-conversations",
+title:
+"1v1 Chat for Private and Anonymous Conversations",
+image: "/src/blog/pictures/17.webp",
+category: "Guide",
+date: "12 April, 2026",
+readTime: "11 min read",
+excerpt:
+"Explore 1v1 online chat and the considerations involved in private and anonymous conversations.",
+},
+
+{
+slug: "how-to-find-a-girlfriend-Online-in-2026",
+title:
+"How to Build Real Connections Online ",
+image: "/src/blog/pictures/18.webp",
+category: "Tips",
+date: "10 April, 2026",
+readTime: "15 min read",
+excerpt:
+"Learn practical ways to build genuine connections online through respectful and meaningful conversations.",
+},
+
+{
+slug:
+"what-is-a-talk-room-video-chat-rooms-explained",
+title:
+"What Is a Talk Room? Video Chat Rooms Explained",
+image: "/src/blog/pictures/19.webp",
+category: "Voice and Video",
+date: "8 April, 2026",
+readTime: "8 min read",
+excerpt:
+"Learn what online talk rooms are, how video chat rooms work, and how people use them to communicate.",
+},
+
+{
+slug:
+"omegle-girls-what-happened-and-what-comes-next",
+title:
+"Omegle's Rise and Fall: What the Internet Learned, and Why People Still Search For It",
+image: "/src/blog/pictures/20.webp",
+category: "Voice and Video",
+date: "6 April, 2026",
+readTime: "8 min read",
+excerpt:
+"Explore the rise and fall of Omegle, what users learned from the platform, and why people still search for random chat experiences.",
+},
+
+{
+slug:
+"video-chat-for-lonely-or-depressed-people",
+title:
+"Video Chat for Lonely or Depressed People — The Role of Technology in Connection",
+image: "/src/blog/pictures/21.webp",
+category: "Guide",
+date: "4 April, 2026",
+readTime: "9 min read",
+excerpt:
+"Explore how technology and video communication can help people find opportunities for social connection.",
+},
+
+{
+slug:
+"how-talking-to-strangers-can-build-confidence-and-make-you-an-extrovert",
+title:
+"How Talking to Strangers Can Build Confidence and Make you an Extrovert",
+image: "/src/blog/pictures/22.webp",
+category: "Guide",
+date: "1 April, 2026",
+readTime: "10 min read",
+excerpt:
+"Learn how talking to strangers can provide opportunities to practice communication, build confidence, and become more socially comfortable.",
+},
+];
+
+const schema = {
+"@context": "https://schema.org",
+"@type": "Blog",
+"mainEntityOfPage": "https://wakiee.live/blog",
+"publisher": {
+"@type": "Organization",
+"name": "Wakiee"
+},
+"name": "Wakiee Blog",
+"url": "https://wakiee.live/blog",
+"description":
+"Tips about talking to strangers, video chat, and communication."
+};
+--
+
+<BaseLayout
+title={title}
+description={description}
+keywords={keywords}
+robots="index, follow, max-image-preview:large"
+canonical={canonical}
+ogTitle="Wakiee Blog"
+ogDescription="Learn how to talk to strangers and improve communication skills."
+ogUrl={canonical}
+ogType="website"
+twitterTitle="Wakiee Blog"
+twitterDescription="Learn how to talk to strangers and improve communication skills."
+twitterImage="https://wakiee.live/banner.webp"
+schema={schema}
+
+>
+
+  <div class="blog-container">
+
+
+<h1 class="blog-title">Wakiee Blog</h1>
+
+<p class="blog-subtitle">
+  Explore stories, tips, and experiences about learning cultures,
+  friendships, and online communication through <strong>Wakiee</strong>.
+</p>
+
+<!-- ---------- Blog Categories ---------- -->
+<div class="blog-category-box">
+
+  <h2 class="blog-category-title">
+    Category
+  </h2>
+
+  <div class="blog-category-list">
+
+    {
+      categories.map((category) => (
+        <button
+          type="button"
+          class:list={[
+            "blog-category-button",
+            { active: category === "All" }
+          ]}
+          data-category={category}
+          aria-pressed={category === "All" ? "true" : "false"}
+        >
+          {category}
+        </button>
+      ))
+    }
+
+  </div>
+
+</div>
+
+<!-- ---------- Blog Grid ---------- -->
+<div class="blog-grid" id="blog-grid">
+
+  {
+    posts.map((post) => (
+      <PostCard
+        post={post}
+        data-category={post.category}
+      />
+    ))
+  }
+
+</div>
+
+
+  </div>
+</BaseLayout>
+
+<script>
+  const categoryButtons =
+    document.querySelectorAll(".blog-category-button");
+
+  const blogCards =
+    document.querySelectorAll(".post-card");
+
+  categoryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedCategory =
+        button.getAttribute("data-category");
+
+      categoryButtons.forEach((categoryButton) => {
+        categoryButton.classList.remove("active");
+        categoryButton.setAttribute("aria-pressed", "false");
+      });
+
+      button.classList.add("active");
+      button.setAttribute("aria-pressed", "true");
+
+      blogCards.forEach((card) => {
+        const cardCategory =
+          card.getAttribute("data-category");
+
+        if (
+          selectedCategory === "All" ||
+          cardCategory === selectedCategory
+        ) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+</script>
 
