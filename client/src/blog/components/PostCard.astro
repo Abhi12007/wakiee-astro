@@ -1,1 +1,56 @@
+---
+interface Post {
+  slug: string;
+  title: string;
+  image: {
+    src: string;
+    width?: number;
+    height?: number;
+    format?: string;
+  };
+  category?: string;
+  date: string;
+  readTime: string;
+  excerpt: string;
+  metaTitle?: string;
+}
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+
+const cardTitle = post.metaTitle || post.title;
+---
+
+<div class="post-card" data-category={post.category}>
+  <a
+    href={`/blog/${post.slug}`}
+    class="post-card-link"
+    title={cardTitle}
+  >
+    <div class="post-image-container">
+      <img
+        src={post.image.src}
+        alt={cardTitle}
+        class="post-image"
+        loading="lazy"
+        decoding="async"
+        width={post.image.width}
+        height={post.image.height}
+      />
+    </div>
+
+    <div class="post-content">
+      <p class="post-date">
+        {post.date} • {post.readTime}
+      </p>
+
+      <h3 class="post-title">{post.title}</h3>
+
+      <p class="post-excerpt">{post.excerpt}</p>
+    </div>
+  </a>
+</div>
 
