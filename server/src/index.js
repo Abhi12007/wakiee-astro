@@ -1136,12 +1136,16 @@ setInterval(
   5000
 );
 //==============================================================================================================
+/*                astro does not need this
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../../client/build')));
   app.get('*', (req, res) =>
     res.sendFile(path.join(__dirname, '../../client/build', 'index.html'))
   );
 }
+
+*/
 
 setInterval(() => {
   cleanExpiredRoomBans();
