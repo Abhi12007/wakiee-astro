@@ -2,9 +2,13 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 
 export default defineConfig({
+  site: 'https://wakiee.live',
+
   integrations: [react()],
 
   output: 'static',
+
+  trailingSlash: 'never',
 
   build: {
     format: 'file'
