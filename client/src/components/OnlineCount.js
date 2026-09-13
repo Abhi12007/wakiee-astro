@@ -6,7 +6,6 @@ const [onlineCount, setOnlineCount] = useState(0);
 useEffect(() => {
 let isMounted = true;
 
-```
 const fetchOnlineCount = async () => {
   try {
     const res = await fetch("/api/online-count");
@@ -34,7 +33,7 @@ return () => {
   isMounted = false;
   clearInterval(interval);
 };
-```
+
 
 }, []);
 
