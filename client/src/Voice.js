@@ -1,7 +1,7 @@
 //opus used in voice4  // add turn code like video for 98% connection success
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { updateSEO } from "./updateSEO";
+
 import { io } from "socket.io-client";
 import "./Voice.css";
 import wakieeIcon from "./W1.png";
@@ -45,82 +45,210 @@ export default function Voice(){
 
   const navigate = useNavigate();
 
-useEffect(() => {
-    
-  updateSEO({
-    title: "Random Voice Chat | Free Voice Chat with Strangers | Wakiee",
+function updateVoiceSEO() {
+  const setOrUpdateMeta = (selector, attributes) => {
+    let element = document.head.querySelector(selector);
 
-    description:
-      "Start a free random voice chat with strangers without login on Wakiee. Enjoy anonymous voice chat, high-quality audio, AI moderation, human reporting, no signup, no downloads, and secure online voice calls with people worldwide. ",
+    if (!element) {
+      element = document.createElement("meta");
+      document.head.appendChild(element);
+    }
 
-    keywords:
-      "online voice calls free,random voice chat,voice chat with strangers,voice call with strangers,voice chat,voice call,free voice chat,online voice chat,voice chat online,talk on voice call,chat with strangers,stranger chat,random chat,anonymous voice chat,random audio call,audio call with strangers,random call, random talk,random chat,random voice call, talk to strangers voice chat, anonymous voice call,  stranger voice call,voice call website",
-     
+    Object.entries(attributes).forEach(([name, value]) => {
+      element.setAttribute(name, value);
+    });
 
-     robots: "index, follow, max-image-preview:large",
-    canonical: "https://wakiee.live/voice",
+    return element;
+  };
 
-    og: {
-      title: "Free Voice Chat – Wakiee",
-      description:
-        "Use Wakiee voice chat to talk with strangers worldwide. Start anonymous voice calls instantly.",
-      url: "https://wakiee.live/voice",
-      image: "https://wakiee.live/android-chrome-192x192.png",
-    },
+  const setOrUpdateLink = (selector, attributes) => {
+    let element = document.head.querySelector(selector);
 
-    twitter: {
-      title: "Free Voice Chat – Wakiee",
-      description:
-        "Talk to strangers using random voice chat and connect globally.",
-      image: "https://wakiee.live/android-chrome-192x192.png",
-    },
+    if (!element) {
+      element = document.createElement("link");
+      document.head.appendChild(element);
+    }
 
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      name: "Wakiee Voice Chat",
-      url: "https://wakiee.live/voice",
-      applicationCategory: "CommunicationApplication",
-      operatingSystem: "All",
-      description:
-        "Wakiee is a random voice chat platform to talk with strangers online instantly.",
+    Object.entries(attributes).forEach(([name, value]) => {
+      element.setAttribute(name, value);
+    });
 
-      isPartOf: {
-        "@type": "WebSite",
-        "@id": "https://wakiee.live/#website",
-      },
+    return element;
+  };
 
-      publisher: {
-        "@type": "Organization",
-        name: "Wakiee",
-        url: "https://wakiee.live/",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://wakiee.live/android-chrome-192x192.png",
+  const title =
+    "Random Voice Chat | Free Voice Chat with Strangers | Wakiee";
+
+  const description =
+    "Start a free random voice chat with strangers without login on Wakiee. Enjoy anonymous voice chat, high-quality audio, AI moderation, human reporting, no signup, no downloads, and secure online voice calls with people worldwide.";
+
+  const keywords =
+    "online voice calls free,random voice chat,voice chat with strangers,voice call with strangers,voice chat,voice call,free voice chat,online voice chat,voice chat online,talk on voice call,chat with strangers,stranger chat,random chat,anonymous voice chat,random audio call,audio call with strangers,random call, random talk,random chat,random voice call, talk to strangers voice chat, anonymous voice call, stranger voice call,voice call website";
+
+  const robots = "index, follow, max-image-preview:large";
+
+  const canonical = "https://wakiee.live/voice";
+
+  const ogTitle = "Free Voice Chat – Wakiee";
+
+  const ogDescription =
+    "Use Wakiee voice chat to talk with strangers worldwide. Start anonymous voice calls instantly.";
+
+  const ogImage =
+    "https://wakiee.live/android-chrome-192x192.png";
+
+  const twitterTitle = "Free Voice Chat – Wakiee";
+
+  const twitterDescription =
+    "Talk to strangers using random voice chat and connect globally.";
+
+  document.title = title;
+
+  setOrUpdateMeta('meta[name="description"]', {
+    name: "description",
+    content: description
+  });
+
+  setOrUpdateMeta('meta[name="keywords"]', {
+    name: "keywords",
+    content: keywords
+  });
+
+  setOrUpdateMeta('meta[name="robots"]', {
+    name: "robots",
+    content: robots
+  });
+
+  setOrUpdateMeta('meta[name="theme-color"]', {
+    name: "theme-color",
+    content: "#0056A6"
+  });
+
+  setOrUpdateLink('link[rel="canonical"]', {
+    rel: "canonical",
+    href: canonical
+  });
+
+  setOrUpdateMeta('meta[property="og:title"]', {
+    property: "og:title",
+    content: ogTitle
+  });
+
+  setOrUpdateMeta('meta[property="og:description"]', {
+    property: "og:description",
+    content: ogDescription
+  });
+
+  setOrUpdateMeta('meta[property="og:type"]', {
+    property: "og:type",
+    content: "website"
+  });
+
+  setOrUpdateMeta('meta[property="og:url"]', {
+    property: "og:url",
+    content: canonical
+  });
+
+  setOrUpdateMeta('meta[property="og:image"]', {
+    property: "og:image",
+    content: ogImage
+  });
+
+  setOrUpdateMeta('meta[property="og:site_name"]', {
+    property: "og:site_name",
+    content: "Wakiee"
+  });
+
+  setOrUpdateMeta('meta[name="twitter:card"]', {
+    name: "twitter:card",
+    content: "summary_large_image"
+  });
+
+  setOrUpdateMeta('meta[name="twitter:title"]', {
+    name: "twitter:title",
+    content: twitterTitle
+  });
+
+  setOrUpdateMeta('meta[name="twitter:description"]', {
+    name: "twitter:description",
+    content: twitterDescription
+  });
+
+  setOrUpdateMeta('meta[name="twitter:image"]', {
+    name: "twitter:image",
+    content: ogImage
+  });
+
+  setOrUpdateMeta('meta[name="twitter:site"]', {
+    name: "twitter:site",
+    content: "@wakiee_live"
+  });
+
+  const voicePageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        name: "Wakiee Voice Chat",
+        url: "https://wakiee.live/voice",
+        applicationCategory: "CommunicationApplication",
+        operatingSystem: "All",
+        description:
+          "Wakiee is a random voice chat platform to talk with strangers online instantly.",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": "https://wakiee.live/#website"
         },
+        publisher: {
+          "@type": "Organization",
+          name: "Wakiee",
+          url: "https://wakiee.live/",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://wakiee.live/android-chrome-192x192.png"
+          }
+        }
       },
-
-      breadcrumb: {
+      {
         "@type": "BreadcrumbList",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://wakiee.live/",
+            item: "https://wakiee.live/"
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Voice Chat",
-            item: "https://wakiee.live/voice",
-          },
-        ],
-      },
-    },
-  });
-}, []);
+            item: "https://wakiee.live/voice"
+          }
+        ]
+      }
+    ]
+  };
 
+  const oldVoiceSchema = document.head.querySelector(
+    'script[type="application/ld+json"][data-page]'
+  );
+
+  if (oldVoiceSchema) {
+    oldVoiceSchema.remove();
+  }
+
+  const voiceSchemaScript = document.createElement("script");
+
+  voiceSchemaScript.type = "application/ld+json";
+  voiceSchemaScript.setAttribute("data-page", "true");
+  voiceSchemaScript.textContent = JSON.stringify(voicePageSchema);
+
+  document.head.appendChild(voiceSchemaScript);
+}
+
+useEffect(() => {
+  updateVoiceSEO();
+}, []);
 
   
   const { wakieeID, banInfo, BanOverlay } = useWakieeID();
