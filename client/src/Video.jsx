@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { updateSEO } from "./updateSEO";
 import io from "socket.io-client";
 import "./Video.css";
 import { useWakieeID } from "./WakieeID";
@@ -35,110 +34,243 @@ async function getCloudflareTurnServers() {
 
 export default function Video({ onCallStart }) {
   const navigate = useNavigate();
-useEffect(() => {
-  updateSEO({
-    title: "Random Video Chat | Free Video Chat with Strangers | Wakiee",
+  
+function updateVideoSEO() {
+const setOrUpdateMeta = (selector, attributes) => {
+let element = document.head.querySelector(selector);
 
-    description:
-     "Enjoy free random video chat with strangers online on Wakiee. Meet real people through secure video calls with no signup, no downloads, AI moderation, Human reporting, and high-quality webcam chat.",
-
-    keywords:
-      "random video chat ,video chat,video chat with strangers, online video calls free,american random video call free, american random video call,online video call,webcam chat with strangers,no signup video chat,omegle online,talk to strangers video chat, webcam chat online, free video call strangers, omegle alternative video chat, random video call,free video chat,chat with strangers,video chat online,video chat with strangers",
-
-   robots: "index, follow, max-image-preview:large",
-
-    canonical: "https://wakiee.live/video",
-
-    og: {
-      title: "Random Video Chat – Wakiee",
-      description:
-        "Start live video chat with strangers and meet people worldwide instantly.",
-      url: "https://wakiee.live/video",
-      image: "https://wakiee.live/android-chrome-192x192.png",
-    },
-
-    twitter: {
-      title: "Random Video Chat – Wakiee",
-      description:
-        "Talk to strangers through live webcam and random video chat.",
-      image: "https://wakiee.live/android-chrome-192x192.png",
-    },
-
-    schema: {
-      "@context": "https://schema.org",
-      "@graph": [
-
-        {
-          "@type": "WebApplication",
-          name: "Wakiee Video Chat",
-          url: "https://wakiee.live/video",
-          applicationCategory: "CommunicationApplication",
-          operatingSystem: "All",
-          description:
-            "Wakiee is a random video chat platform that lets users talk to strangers through live webcam conversations.",
-
-          isPartOf: {
-            "@type": "WebSite",
-            "@id": "https://wakiee.live/#website",
-          },
-
-          publisher: {
-            "@type": "Organization",
-            name: "Wakiee",
-            url: "https://wakiee.live/",
-            logo: {
-              "@type": "ImageObject",
-              url: "https://wakiee.live/android-chrome-192x192.png",
-            },
-          },
-        },
-
-        {
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: "Home",
-              item: "https://wakiee.live/",
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: "Video Chat",
-              item: "https://wakiee.live/video",
-            },
-          ],
-        },
-
-        {
-          "@type": "FAQPage",
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "Is Wakiee video chat free?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text:
-                  "Yes, Wakiee offers completely free random video chat without login or signup.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Do I need to create an account?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text:
-                  "No, you can start video chat instantly without creating an account.",
-              },
-            },
-          ],
-        },
-
-      ],
-    },
+if (!element) {
+  element = document.createElement("meta");
+  Object.entries(attributes).forEach(([name, value]) => {
+    element.setAttribute(name, value);
   });
+  document.head.appendChild(element);
+} else {
+  Object.entries(attributes).forEach(([name, value]) => {
+    element.setAttribute(name, value);
+  });
+}
+
+return element;
+
+};
+
+const setOrUpdateLink = (selector, attributes) => {
+let element = document.head.querySelector(selector);
+
+
+if (!element) {
+  element = document.createElement("link");
+  Object.entries(attributes).forEach(([name, value]) => {
+    element.setAttribute(name, value);
+  });
+  document.head.appendChild(element);
+} else {
+  Object.entries(attributes).forEach(([name, value]) => {
+    element.setAttribute(name, value);
+  });
+}
+
+return element;
+};
+
+const title =
+"Random Video Chat | Free Video Chat with Strangers | Wakiee";
+
+const description =
+"Enjoy free random video chat with strangers online on Wakiee. Meet real people through secure video calls with no signup, no downloads, AI moderation, Human reporting, and high-quality webcam chat.";
+
+const keywords =
+"random video chat ,video chat,video chat with strangers, online video calls free,american random video call free, american random video call,online video call,webcam chat with strangers,no signup video chat,omegle online,talk to strangers video chat, webcam chat online, free video call strangers, omegle alternative video chat, random video call,free video chat,chat with strangers,video chat online,video chat with strangers";
+
+const robots = "index, follow, max-image-preview:large";
+
+const canonical = "https://wakiee.live/video";
+
+const ogTitle = "Random Video Chat – Wakiee";
+
+const ogDescription =
+"Start live video chat with strangers and meet people worldwide instantly.";
+
+const ogImage =
+"https://wakiee.live/android-chrome-192x192.png";
+
+const twitterTitle = "Random Video Chat – Wakiee";
+
+const twitterDescription =
+"Talk to strangers through live webcam and random video chat.";
+
+document.title = title;
+
+setOrUpdateMeta('meta[name="description"]', {
+name: "description",
+content: description,
+});
+
+setOrUpdateMeta('meta[name="keywords"]', {
+name: "keywords",
+content: keywords,
+});
+
+setOrUpdateMeta('meta[name="robots"]', {
+name: "robots",
+content: robots,
+});
+
+setOrUpdateMeta('meta[name="theme-color"]', {
+name: "theme-color",
+content: "#0056A6",
+});
+
+setOrUpdateLink('link[rel="canonical"]', {
+rel: "canonical",
+href: canonical,
+});
+
+setOrUpdateMeta('meta[property="og:title"]', {
+property: "og:title",
+content: ogTitle,
+});
+
+setOrUpdateMeta('meta[property="og:description"]', {
+property: "og:description",
+content: ogDescription,
+});
+
+setOrUpdateMeta('meta[property="og:type"]', {
+property: "og:type",
+content: "website",
+});
+
+setOrUpdateMeta('meta[property="og:url"]', {
+property: "og:url",
+content: canonical,
+});
+
+setOrUpdateMeta('meta[property="og:image"]', {
+property: "og:image",
+content: ogImage,
+});
+
+setOrUpdateMeta('meta[property="og:site_name"]', {
+property: "og:site_name",
+content: "Wakiee",
+});
+
+setOrUpdateMeta('meta[name="twitter:card"]', {
+name: "twitter:card",
+content: "summary_large_image",
+});
+
+setOrUpdateMeta('meta[name="twitter:title"]', {
+name: "twitter:title",
+content: twitterTitle,
+});
+
+setOrUpdateMeta('meta[name="twitter:description"]', {
+name: "twitter:description",
+content: twitterDescription,
+});
+
+setOrUpdateMeta('meta[name="twitter:image"]', {
+name: "twitter:image",
+content: ogImage,
+});
+
+setOrUpdateMeta('meta[name="twitter:site"]', {
+name: "twitter:site",
+content: "@wakiee_live",
+});
+
+const videoPageSchema = {
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebApplication",
+name: "Wakiee Video Chat",
+url: "https://wakiee.live/video",
+applicationCategory: "CommunicationApplication",
+operatingSystem: "All",
+description:
+"Wakiee is a random video chat platform that lets users talk to strangers through live webcam conversations.",
+isPartOf: {
+"@type": "WebSite",
+"@id": "https://wakiee.live/#website",
+},
+publisher: {
+"@type": "Organization",
+name: "Wakiee",
+url: "https://wakiee.live/",
+logo: {
+"@type": "ImageObject",
+url: "https://wakiee.live/android-chrome-192x192.png",
+},
+},
+},
+{
+"@type": "BreadcrumbList",
+itemListElement: [
+{
+"@type": "ListItem",
+position: 1,
+name: "Home",
+item: "https://wakiee.live/",
+},
+{
+"@type": "ListItem",
+position: 2,
+name: "Video Chat",
+item: "https://wakiee.live/video",
+},
+],
+},
+{
+"@type": "FAQPage",
+mainEntity: [
+{
+"@type": "Question",
+name: "Is Wakiee video chat free?",
+acceptedAnswer: {
+"@type": "Answer",
+text:
+"Yes, Wakiee offers completely free random video chat without login or signup.",
+},
+},
+{
+"@type": "Question",
+name: "Do I need to create an account?",
+acceptedAnswer: {
+"@type": "Answer",
+text:
+"No, you can start video chat instantly without creating an account.",
+},
+},
+],
+},
+],
+};
+
+const oldVideoSchema = document.head.querySelector(
+'script[type="application/ld+json"][data-page]'
+);
+
+if (oldVideoSchema) {
+oldVideoSchema.remove();
+}
+
+const videoSchemaScript = document.createElement("script");
+
+videoSchemaScript.type = "application/ld+json";
+videoSchemaScript.setAttribute("data-page", "true");
+videoSchemaScript.textContent = JSON.stringify(videoPageSchema);
+
+document.head.appendChild(videoSchemaScript);
+}
+
+useEffect(() => {
+updateVideoSEO();
 }, []);
+
 
 
   
