@@ -4,7 +4,7 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import Voice from "../Voice.js";
+import Voice from "../Voice.jsx";
 
 function NavigationBridge() {
   const location = useLocation();
