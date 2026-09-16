@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: omegle-clone
+    name: wakiee
     env: node
     buildCommand: npm install && npm run build
     startCommand: npm start
