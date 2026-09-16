@@ -1151,5 +1151,42 @@ setInterval(() => {
   cleanExpiredRoomBans();
 }, 2 * 60 * 60 * 1000); // expired room ban auto clean every 2 hours
 
+// ======================================================
+// SERVE ASTRO FRONTEND
+// ======================================================
+
+const clientDist = path.join(__dirname, "../../client/dist");
+
+// Serve Astro static assets/files
+app.use(express.static(clientDist));
+
+// Serve extensionless Astro routes
+app.get("*", (req, res, next) => {
+  // Never interfere with API or Socket.IO requests
+  if (
+    req.path.startsWith("/api/") ||
+    req.path.startsWith("/socket.io/")
+  ) {
+    return next();
+  }
+
+  // Try exact .html file for Astro pages
+  const requestedFile = path.join(
+    clientDist,
+    `${req.path.replace(/^\/+/, "")}.html`
+  );
+
+  if (req.path === "/") {
+    return res.sendFile(path.join(clientDist, "index.html"));
+  }
+
+  res.sendFile(requestedFile, (err) => {
+    if (err) {
+      next();
+    }
+  });
+});
+
+
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
