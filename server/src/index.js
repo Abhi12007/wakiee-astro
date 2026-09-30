@@ -1157,10 +1157,10 @@ setInterval(() => {
 
 const clientDist = path.join(__dirname, "../../client/dist");
 
-// Serve Astro static assets/files
+// Serve Astro static assets
 app.use(express.static(clientDist));
 
-// Serve extensionless Astro routes
+// Handle extensionless Astro routes
 app.get("*", (req, res, next) => {
   // Never interfere with API or Socket.IO requests
   if (
@@ -1170,15 +1170,28 @@ app.get("*", (req, res, next) => {
     return next();
   }
 
-  // Try exact .html file for Astro pages
+  // Astro uses trailingSlash: "never"
+  // /blog/ -> /blog
+  // /video/ -> /video
+  // /voice/ -> /voice
+  // /rooms/ -> /rooms
+  if (req.path.length > 1 && req.path.endsWith("/")) {
+    return res.redirect(301, req.path.slice(0, -1));
+  }
+
+  // Homepage
+  if (req.path === "/") {
+    return res.sendFile(path.join(clientDist, "index.html"));
+  }
+
+  // Convert /about -> /about.html
+  // Convert /blog -> /blog.html
+  // Convert /video -> /video.html
+  // etc.
   const requestedFile = path.join(
     clientDist,
     `${req.path.replace(/^\/+/, "")}.html`
   );
-
-  if (req.path === "/") {
-    return res.sendFile(path.join(clientDist, "index.html"));
-  }
 
   res.sendFile(requestedFile, (err) => {
     if (err) {
@@ -1186,7 +1199,6 @@ app.get("*", (req, res, next) => {
     }
   });
 });
-
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
