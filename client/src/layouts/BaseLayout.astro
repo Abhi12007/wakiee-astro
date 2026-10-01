@@ -125,13 +125,46 @@ const {
     <meta name="application-name" content="Wakiee" />
     <meta name="msapplication-TileColor" content="#0056A6" />
 
-    <!-- Google Analytics
-         Keep delayed loading strategy for performance.
-         We will restore this after the migration is stable. -->
 
-    <!-- Google AdSense
-         Currently commented in your original index.html.
-         DO NOT enable it during this migration yet. -->
+
+    <!-- Google Analytics -->
+ <!-- 🌐 Google Analytics 4 (delayed load for better performance) 
+   
+<script>
+  window.addEventListener("load", function () {
+    // ⏳ Delay GA4 load by 4 seconds after page load
+    setTimeout(function () {
+      // Create GA script dynamically
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-9CWTVW7L3E";
+      document.head.appendChild(gaScript);
+
+      // Initialize GA when script loads
+      gaScript.onload = function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-9CWTVW7L3E", {
+          send_page_view: true
+        });
+      };
+    }, 5000); // delay = 5 seconds
+  });
+</script>
+   
+-->
+
+    <!-- Google AdSense  -->
+ <!--
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1531963983329287"
+     crossorigin="anonymous"></script>
+   <meta name="google-adsense-account" content="ca-pub-1531963983329287">
+-->
+
+
   </head>
 
   <body>
