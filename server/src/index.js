@@ -1157,35 +1157,11 @@ setInterval(() => {
 
 const clientDist = path.join(__dirname, "../../client/dist");
 
-// ======================================================
-// BLOG ROUTES
-// Astro generates:
-// client/dist/blog.html
-//
-// Keep the public URL:
-// /blog
-//
-// Redirect /blog/ -> /blog
-// ======================================================
+// Serve Astro static assets/files
+// redirect:false stops Express from sending /blog -> /blog/ because a "blog" folder exists
+app.use(express.static(clientDist, { redirect: false }));
 
-app.get("/blog/", (req, res) => {
-  return res.redirect(301, "/blog");
-});
-
-app.get("/blog", (req, res) => {
-  return res.sendFile(path.join(clientDist, "blog.html"));
-});
-
-// ======================================================
-// SERVE ASTRO STATIC FILES
-// ======================================================
-
-app.use(express.static(clientDist));
-
-// ======================================================
-// SERVE OTHER ASTRO EXTENSIONLESS ROUTES
-// ======================================================
-
+// Serve extensionless Astro routes
 app.get("*", (req, res, next) => {
   // Never interfere with API or Socket.IO requests
   if (
@@ -1195,17 +1171,17 @@ app.get("*", (req, res, next) => {
     return next();
   }
 
-  // Homepage
   if (req.path === "/") {
     return res.sendFile(path.join(clientDist, "index.html"));
   }
 
-  // Convert:
-  // /about -> about.html
-  // /video -> video.html
-  // /voice -> voice.html
-  // /rooms -> rooms.html
-  // etc.
+  // If someone lands on /blog/ (old links, Google), send them to /blog
+  if (req.path.endsWith("/")) {
+    const query = req.url.slice(req.path.length);
+    return res.redirect(301, req.path.replace(/\/+$/, "") + query);
+  }
+
+  // Try exact .html file for Astro pages
   const requestedFile = path.join(
     clientDist,
     `${req.path.replace(/^\/+/, "")}.html`
