@@ -1,44 +1,35 @@
 import React, { useEffect, useState } from "react";
+import { io } from "socket.io-client";
 
 export default function OnlineCount() {
-const [onlineCount, setOnlineCount] = useState(0);
+  const [onlineCount, setOnlineCount] = useState(0);
 
-useEffect(() => {
-let isMounted = true;
+  useEffect(() => {
+    let isMounted = true;
 
-const fetchOnlineCount = async () => {
-  try {
-    const res = await fetch("/api/online-count");
-    const data = await res.json();
+    // Presence connection: makes this tab count as "online" on the server.
+    // Same-origin connection to the main "/" namespace, same as Video.jsx used.
+    const presenceSocket = io();
 
-    if (isMounted) {
-      setOnlineCount(data.online);
-    }
-  } catch (err) {
-    // Silent fail — keep the existing displayed value
-  }
-};
+    const fetchOnlineCount = async () => {
+      try {
+        const res = await fetch("/api/online-count");
+        const data = await res.json();
+        if (isMounted) setOnlineCount(data.online);
+      } catch (err) {
+        // keep showing the previous value
+      }
+    };
 
-// First fetch immediately
-fetchOnlineCount();
+    fetchOnlineCount();
+    const interval = setInterval(fetchOnlineCount, 5000);
 
-// Refresh every 5 seconds
-const interval = setInterval(
-  fetchOnlineCount,
-  5000
-);
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+      presenceSocket.disconnect();
+    };
+  }, []);
 
-// Cleanup when component is removed
-return () => {
-  isMounted = false;
-  clearInterval(interval);
-};
-
-
-}, []);
-
-return ( <div className="sub">
-🟢Online: {onlineCount} </div>
-);
+  return <div className="sub">🟢Online: {onlineCount}</div>;
 }
-
