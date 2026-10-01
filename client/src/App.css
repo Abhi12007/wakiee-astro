@@ -209,10 +209,11 @@ section h3 {
   font-weight: 500;
   margin-top: 1rem;
 }
- .nav-links .back-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 22px;
+
+.nav-links .back-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 25px;
   }
 
 @media (max-width:1100px){ /*For mobile */  /*tried in redmi */
@@ -588,11 +589,7 @@ body::-webkit-scrollbar {
 
 /* Mobile behavior */
 @media (max-width: 768px) {
-  .nav-links .back-btn {
-    width: 48px;
-    height: 48px;
-    font-size: 26px;
-  }
+ 
   .hamburger {
     display: flex;
   }
