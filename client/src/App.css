@@ -517,6 +517,18 @@ body::-webkit-scrollbar {
   justify-content: center;
   cursor: pointer;
   padding: 8px;
+
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger:focus,
+.hamburger:active {
+  background: transparent;
+  outline: none;
 }
 
 .hamburger .bar {
