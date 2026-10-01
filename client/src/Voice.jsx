@@ -916,7 +916,7 @@ ${status==="connected" && partnerMuted ? "ring-red-voice":""}
 
 {avatar ? avatar :
 <img
-src={wakieeIcon}
+src={wakieeIcon.src}
 alt="Free voice chat with strangers on Wakiee"
 />
 }
