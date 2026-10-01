@@ -57,7 +57,7 @@
 }
 
 /* ---------- Blog Header ---------- */
-.blog-title {
+.blog-container .blog-title {
   font-size: 3.2rem;
   font-weight: 700;
   color: #ff9900; /* golden color */
@@ -299,7 +299,7 @@
 }
 
 @media (max-width: 768px) {
-  .blog-title {
+   .blog-container .blog-title {
     font-size: 2.6rem;
   }
 
@@ -317,7 +317,7 @@
 }
 
 @media (max-width: 480px) {
-  .blog-title {
+  .blog-container .blog-title {
     font-size: 2.1rem;
   }
 
