@@ -58,7 +58,7 @@
 
 /* ---------- Blog Header ---------- */
 .blog-title {
-  font-size: 2.4rem;
+  font-size: 3.2rem;
   font-weight: 700;
   color: #ff9900; /* golden color */
   margin-bottom: 10px;
@@ -300,7 +300,7 @@
 
 @media (max-width: 768px) {
   .blog-title {
-    font-size: 2rem;
+    font-size: 2.6rem;
   }
 
   .post-card {
@@ -318,7 +318,7 @@
 
 @media (max-width: 480px) {
   .blog-title {
-    font-size: 1.6rem;
+    font-size: 2.1rem;
   }
 
   .post-title {
