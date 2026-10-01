@@ -1157,10 +1157,35 @@ setInterval(() => {
 
 const clientDist = path.join(__dirname, "../../client/dist");
 
-// Serve Astro static assets/files
+// ======================================================
+// BLOG ROUTES
+// Astro generates:
+// client/dist/blog.html
+//
+// Keep the public URL:
+// /blog
+//
+// Redirect /blog/ -> /blog
+// ======================================================
+
+app.get("/blog/", (req, res) => {
+  return res.redirect(301, "/blog");
+});
+
+app.get("/blog", (req, res) => {
+  return res.sendFile(path.join(clientDist, "blog.html"));
+});
+
+// ======================================================
+// SERVE ASTRO STATIC FILES
+// ======================================================
+
 app.use(express.static(clientDist));
 
-// Serve extensionless Astro routes
+// ======================================================
+// SERVE OTHER ASTRO EXTENSIONLESS ROUTES
+// ======================================================
+
 app.get("*", (req, res, next) => {
   // Never interfere with API or Socket.IO requests
   if (
@@ -1170,15 +1195,21 @@ app.get("*", (req, res, next) => {
     return next();
   }
 
-  // Try exact .html file for Astro pages
+  // Homepage
+  if (req.path === "/") {
+    return res.sendFile(path.join(clientDist, "index.html"));
+  }
+
+  // Convert:
+  // /about -> about.html
+  // /video -> video.html
+  // /voice -> voice.html
+  // /rooms -> rooms.html
+  // etc.
   const requestedFile = path.join(
     clientDist,
     `${req.path.replace(/^\/+/, "")}.html`
   );
-
-  if (req.path === "/") {
-    return res.sendFile(path.join(clientDist, "index.html"));
-  }
 
   res.sendFile(requestedFile, (err) => {
     if (err) {
