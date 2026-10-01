@@ -80,7 +80,7 @@ function updateVoiceSEO() {
     "Random Voice Chat | Free Voice Chat with Strangers | Wakiee";
 
   const description =
-    "Start a free random voice chat with strangers without login on Wakiee. Enjoy anonymous voice chat, high-quality audio, AI moderation, human reporting, no signup, no downloads, and secure online voice calls with people worldwide.";
+    "Start a free random voice chat with strangers without login on Wakiee. Enjoy anonymous voice chat with AI moderation, human reporting, no signup, no downloads, and secure online voice calls with people worldwide.";
 
   const keywords =
     "online voice calls free,random voice chat,voice chat with strangers,voice call with strangers,voice chat,voice call,free voice chat,online voice chat,voice chat online,talk on voice call,chat with strangers,stranger chat,random chat,anonymous voice chat,random audio call,audio call with strangers,random call, random talk,random chat,random voice call, talk to strangers voice chat, anonymous voice call, stranger voice call,voice call website";
