@@ -18,7 +18,7 @@ background: linear-gradient(160deg, #1e3a8a, #0f172a, #312e81);
   
   */
 
-min-height:calc(100vh - 16px);  /* adjusts with body padding */
+ /*  min-height:calc(100vh - 16px);                                height of react pannel */
 
 color:white;
 
