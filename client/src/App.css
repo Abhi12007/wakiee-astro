@@ -216,6 +216,73 @@ section h3 {
     font-size: 25px;
   }
 
+/* ===== Static SEO text under the React apps ===== */
+.app-seo {
+  padding: 0 16px 40px;
+}
+
+.app-seo-panel {
+  width: 100%;
+  max-width: 900px;            /* video: same width as the pre-call box */
+  margin: 24px auto 0;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #374151;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #1e1b4b, #0f172a, #1e3a8a);
+  color: #d1d5db;
+  text-align: left;
+}
+
+.app-seo-panel--voice {
+  max-width: 520px;
+  border: 2px solid #3a3a3a;
+}
+
+.app-seo-panel--rooms {
+  max-width: 640px;
+}
+
+@media (min-width: 900px) {
+  .app-seo-panel--voice {
+    max-width: 560px;
+  }
+}
+
+/* Text styles moved over from Video.css and Voice.css */
+.video-seo-video {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.voice-seo-voice,
+.rooms-seo {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+  text-align: left;
+}
+
+.voice-seo-voice h1,
+.rooms-seo h1 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+/* Video pre-call: remove the empty gap between the box and the text */
+.video-page:not(.active-call) {
+  min-height: auto;
+  padding-bottom: 8px;
+}
+
+/* Hide the text while a video call or a room is open */
+body:has(.video-page.active-call) .app-seo,
+body:has(.room-view) .app-seo {
+  display: none;
+}
+
 @media (max-width:1100px){ /*For mobile */  /*tried in redmi */
 
   .blog-title-home {
