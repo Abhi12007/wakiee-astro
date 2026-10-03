@@ -281,7 +281,7 @@ background: linear-gradient(160deg, #1e1b4b, #0f172a, #1e3a8a);
 }
 
 .rooms-page {
-  min-height: 100vh;
+ /* min-height: 100vh;     height of react application */
   display: flex;
   flex-direction: column; /*puts text below the box not right side*/
   justify-content: flex-start;  /* align to top-start instead of center */
